@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "version": "2.0",
+  "name": "Movie Scanner",
+  "icons":{
+	"16": "./MovieScanner-Image.png",
+	"48": "./MovieScanner-Image.png",
+	"128": "./MovieScanner-Image.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+		"http://localhost:4200/*",
+            "storage",
+  		"tabs",
+		"cookies",
+ 		"runtime",
+		"management"
+	],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "./DataSource/YouTube/YouTubeParser.js",
+        "./DataSource/YouTube/TitleMask/Netflix.js",
+        "./DataSource/YouTube/TitleMask/DisneyPlus.js",
+        "./DataSource/YouTube/TitleMask/FilmSelectTrailer.js",
+        "./DataSource/YouTube/TitleMask/HBOMax.js",
+        "./DataSource/YouTube/TitleMask/Hulu.js",
+        "./DataSource/YouTube/TitleMask/PrimeVideo.js",
+        "./DataSource/YouTube/TitleMask/RottenTomatoesTrailers.js",
+        "./DataSource/YouTube/TitleMask/SonyPicturesEntertainment.js",
+        "./DataSource/YouTube/TitleMask/NoMatch.js",
+	  "./DataSource/IMDB/IMDBParser.js",
+ 	  "./DataSource/RottenTomatoes/RottenTomatoesParser.js",
+        "./DataSource/TMDB/TMDBParser.js",
+        "./DataSource/GoogleDescription/GoogleDescriptionParser.js",
+        "./Utils/CalculateTimeSpent.js",
+        "./Utils/SendDataToServer.js",
+        "main.js"
+      ],
+      "type": "module"
+    }
+  ]
+}
+
