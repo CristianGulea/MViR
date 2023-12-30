@@ -1,0 +1,62 @@
+  <div class="container-fluid h-100">
+    <app-loading-cubes *ngIf="this.loadingCubesService.getIsLoadingNow()"></app-loading-cubes>
+    <div id="search-bar">
+      <input  autocomplete="off" (input)="findBySubName()" [(ngModel)]="searchSubName" placeholder="Search..." type="search" id="search-input">
+      <span id="title-span">MViR</span>
+    </div>
+    <div id="categories-filter-div">
+      <div id="categories-title">Movie Genres</div>
+      <div id="container-categories">
+        <div class="pull-left mt-sm">
+          <mat-icon class="icon-arrow-left pointer" (click)="scrollLeft()" (mouseover)="scrollLeft()">keyboard_arrow_left</mat-icon>
+        </div>
+        <div #widgetsContent class="custom-slider-main">
+          <div class="info-box" (click)="applyFilterGenre(genre)" *ngFor="let genre of this.getCategoriesDetails()">
+            <div>{{genre.name}}</div>
+          </div>
+        </div>
+        <div class="pull-right mt-sm">
+          <mat-icon class="icon-arrow-right pointer" (click)="scrollRight()" (mouseover)="scrollRight()">keyboard_arrow_right</mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class="movies-filter-div">
+      <div class="container-movies">
+        <div class="div-left-arrow-movie">
+          <mat-icon class="left-arrow-movie" (click)="scrollLeftMovie()" (mouseover)="scrollLeftMovie()">keyboard_arrow_left</mat-icon>
+        </div>
+        <div  #scrollMovie class="custom-slider-movie">
+          <div class="movie-card" *ngFor="let movie of this.getMoviesDetails()">
+            <img  *ngIf="movie.urlPoster.length > 35" (click)="navigateMovieDetail(movie)" src="{{movie.urlPoster}}" alt="{{movie.urlPoster.length}}" class="poster-movie">
+            <div class="image-container" *ngIf="movie.urlPoster.length === 35">
+              <img (click)="navigateMovieDetail(movie)" src='../../assets/images/noPosterImage.png' class="poster-movie" >
+              <div class="image-text">{{movie.name}}</div>
+            </div>
+        </div>
+      </div>
+        <div class="div-right-arrow-movie">
+          <mat-icon class="right-arrow-movie" (click)="scrollRightMovie()" (mouseover)="scrollRightMovie()">keyboard_arrow_right</mat-icon>
+        </div>
+    </div>
+    <div class="movies-filter-recommender-div">
+      <div id="movie-recommended-title">Movies: New & Upcoming</div>
+      <div class="container-movies">
+        <div class="div-left-arrow-movie">
+          <mat-icon class="left-arrow-movie" (mouseover)="scrollLeftUpcomingMovie()" (click)="scrollLeftUpcomingMovie()">keyboard_arrow_left</mat-icon>
+        </div>
+        <div  #scrollMovieRecommender class="custom-slider-movie">
+          <div class="movie-card" *ngFor="let movie of this.getUpcomingMoviesDetails()">
+            <img  *ngIf="movie.urlPoster.length > 35" (click)="navigateMovieDetail(movie)" src="{{movie.urlPoster}}" class="poster-movie">
+            <div class="image-container" *ngIf="movie.urlPoster.length === 35">
+              <img (click)="navigateMovieDetail(movie)" src='../../assets/images/noPosterImage.png' class="poster-movie" >
+              <div class="image-text">{{movie.name}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="div-right-arrow-movie">
+          <mat-icon class="right-arrow-movie" (click)="scrollRightUpcomingMovie()" (mouseover)="scrollRightUpcomingMovie()">keyboard_arrow_right</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

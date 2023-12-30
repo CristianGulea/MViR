@@ -1,0 +1,40 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-L0hfoC23eAgGm2ma+ziLJrbZBcSoZqa22OJ+a+9XlUNckp6iky0F4q3Wxzhx7a5pl5QkBC7/5+NOa9XzNJGOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<div id="maine-page-div" class="container-fluid h-100 position-fixed">
+  <div class="row h-100">
+    <div *ngIf="!hideMenu" class="left-part-div col-sm-2 d-flex align-items-center justify-content-start">
+      <div id="menu">
+        <ul class="option-list">
+          <li (click)="handlerHistoryClicked()">
+            <div>
+              <span>
+            <mat-icon id="history-icon" class="icon-menu">history</mat-icon>
+              </span>
+              <span id="history-text" class="text-menu">History</span>
+            </div>
+          </li>
+          <li (click)="handlerMoviesClicked()">
+          <span>
+            <mat-icon id="movies-icon" class="icon-menu">movie_filter</mat-icon>
+          </span>
+            <span id="movies-text" class="text-menu">Movies</span>
+          </li>
+          <li (click)="handlerRecommendationClicked()">
+          <span>
+            <mat-icon id="suggestions-icon" class="icon-menu">movie</mat-icon>
+          </span>
+            <span id="suggestions-text" class="text-menu">Suggestions</span>
+          </li>
+        </ul>
+      </div>
+      <span id="title-left-part-div">MViR</span>
+    </div>
+    <div class="col-sm-10 right-part-div">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,69 @@
+.title-text{
+  color: whitesmoke;
+  font-family: "Monaco", monospace;
+  font-size: 140%;
+  margin-top: 2%;
+  margin-bottom: 0;
+  user-select: none;
+}
+
+
+
+.container-movies{
+  user-select: none;
+  display: flex;
+  overflow-x: hidden;
+}
+
+.movie-card{
+  margin: 0 2% 2% 0;
+  padding: 1%;
+  background-color: #1C1D29;
+  height: 87%;
+  width: 100%;
+  user-select: none;
+  border-radius: 10px;
+}
+
+.movie-card:hover{
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  user-select: none;
+}
+
+.image{
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  border-radius: 12px;
+  color: whitesmoke;
+  align-content: center;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 70%;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+

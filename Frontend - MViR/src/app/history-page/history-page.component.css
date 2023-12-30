@@ -1,0 +1,79 @@
+#u-list-history{
+  color: whitesmoke;
+  list-style: none;
+  user-select: none;
+}
+
+.my-container {
+  height: 105%;
+  overflow-y: hidden;
+  position: fixed;
+}
+
+#container-history-data{
+  margin: 5% 1% 1% 0;
+  height: 75%;
+  overflow: auto;
+  letter-spacing: 0.12em;
+}
+
+
+#container-history-data::-webkit-scrollbar
+{
+  width: 0;
+  background-color: transparent;
+}
+
+
+
+#number-selected{
+  color: whitesmoke;
+  position: fixed;
+  left: 20%;
+  top: 3%;
+}
+
+#delete-button{
+  position: fixed;
+  top: 3%;
+  right: 3%;
+}
+
+#checkbox-delete{
+  margin-right: 3%;
+}
+
+#time-history{
+  font-size: 80%;
+  margin-right: 3%;
+}
+
+#time-spend-span{
+  font-weight: bold;
+}
+
+#hostname-div{
+  font-weight: bold;
+}
+
+#title-div{
+  font-weight: bold;
+}
+
+input[type='checkbox'] {
+  accent-color: #1C1D29;
+}
+
+#arrow-down-scroll, #arrow-up-scroll{
+  color: whitesmoke;
+  font-size: 180%;
+  position: fixed;
+  user-select: none;
+}
+
+#arrow-down-scroll{
+  left: 50%;
+}
+#arrow-up-scroll{
+  left: 53%;
+}

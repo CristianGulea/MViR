@@ -1,0 +1,25 @@
+<div class="container-fluid h-100">
+  <app-loading-cubes *ngIf="this.loadingCubesService.getIsLoadingNow()"></app-loading-cubes>
+  <div class="row h-100">
+    <span class="title-text">Movie: Recommendations</span>
+    <div class="container-movies">
+      <div class="movie-card" (click)="navigateMovieDetail(movie)" *ngFor="let movie of this.getMovies().slice(0,5)">
+        <img *ngIf="movie.urlPoster.length > 39" (click)="navigateMovieDetail(movie)" src="{{movie.urlPoster}}" alt="{{movie.urlPoster.length}}" class="image poster-movie">
+        <div class="image-container" *ngIf="movie.urlPoster.length === 39">
+          <img (click)="navigateMovieDetail(movie)" src='../../assets/images/noPosterImage.png' class="image poster-movie" >
+          <div class="image-text">{{movie.name}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-movies">
+      <div class="movie-card" (click)="navigateMovieDetail(movie)" *ngFor="let movie of this.getMovies().slice(5, 10)">
+        <img  *ngIf="movie.urlPoster.length > 39" (click)="navigateMovieDetail(movie)" src="{{movie.urlPoster}}" alt="{{movie.urlPoster.length}}" class="image poster-movie">
+        <div class="image-container" *ngIf="movie.urlPoster.length === 39">
+          <img (click)="navigateMovieDetail(movie)" src='../../assets/images/noPosterImage.png' class="image poster-movie" >
+          <div class="image-text">{{movie.name}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

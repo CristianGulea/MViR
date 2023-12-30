@@ -1,0 +1,18 @@
+<div class="container-fluid h-100">
+  <app-loading-cubes *ngIf="this.loadingCubesService.getIsLoadingNow()"></app-loading-cubes>
+  <div class="row h-100">
+    <div id="left-div" class="col-sm-6">
+      <div id="title-div">{{this.getDetailedMovie().name}}</div>
+      <div id="overview-div">{{this.getDetailedMovie().overview}}</div>
+      <div id="genres-div">Genres: <span *ngIf="getGenresString(this.getDetailedMovie().genres).length > 0">{{getGenresString(this.getDetailedMovie().genres)}}</span> <span *ngIf="getGenresString(this.getDetailedMovie().genres).length == 0"> - </span></div>
+      <div id="release-date-div">Release date: {{this.getDetailedMovie().releaseDate}}</div>
+    </div>
+    <div (click)="openTMDBSite(this.getDetailedMovie().id)" id="right-div" class="col-sm-6">
+      <img id="image-poster" *ngIf="this.getDetailedMovie().urlPoster.length !== 39" src="{{this.getDetailedMovie().urlPoster}}" alt="{{this.getDetailedMovie().name}}">
+      <div class="image-container" *ngIf="this.getDetailedMovie().urlPoster.length === 39">
+        <div class="poster-movie">
+        <div class="image-text">{{this.getDetailedMovie().name}}</div>
+      </div>
+    </div>
+  </div>
+</div>
